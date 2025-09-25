@@ -56,7 +56,7 @@ export class Calculadora {
       throw new Error("Percentual deve estar entre 0 e 1");
     }
 
-    return valor - (valor * percentual);
+    return (1 - percentual) * valor;
   }
 
   descontoFixo(valor, desconto) {
