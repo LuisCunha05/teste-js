@@ -1,5 +1,12 @@
 export class Calculadora {
 
+  /**
+   * 
+   * @param {number} a 
+   * @param {number} b 
+   * @returns number
+   * @throws Throws TypeError quando um parâmetro é inválido
+   */
   somar(a, b) {
     this.#validarNumero(a);
     this.#validarNumero(b);
@@ -7,6 +14,13 @@ export class Calculadora {
     return a + b;
   }
 
+  /**
+   * 
+   * @param {number} a 
+   * @param {number} b 
+   * @returns number
+   * @throws Throws TypeError quando um parâmetro é inválido
+   */
   subtrair(a, b) {
     this.#validarNumero(a);
     this.#validarNumero(b);
@@ -14,6 +28,13 @@ export class Calculadora {
     return a - b;
   }
 
+  /**
+   * 
+   * @param {number} a 
+   * @param {number} b 
+   * @returns number
+   * @throws Throws TypeError quando um parâmetro é inválido
+   */
   multiplicar(a, b) {
     this.#validarNumero(a);
     this.#validarNumero(b);
@@ -21,6 +42,13 @@ export class Calculadora {
     return a * b;
   }
 
+  /**
+   * 
+   * @param {number} a 
+   * @param {number} b 
+   * @returns number
+   * @throws Throws TypeError quando um parâmetro é inválido
+   */
   dividir(a, b) {
     this.#validarNumero(a);
     this.#validarNumero(b);
@@ -32,6 +60,14 @@ export class Calculadora {
   }
 
   // M = C * i * t
+  /**
+   * Calcula M = C * i * t
+   * @param {number} capital 
+   * @param {number} taxa 
+   * @param {number} tempo 
+   * @returns number
+   * @throws Throws TypeError quando um parâmetro é inválido
+   */
   jurosSimples(capital, taxa, tempo) {
     this.#validarNumero(capital);
     this.#validarNumero(taxa);
@@ -41,6 +77,14 @@ export class Calculadora {
   }
 
   // M = C * (1 + i)^t
+   /**
+   * Calcula M = C * (1 + i)^t
+   * @param {number} capital 
+   * @param {number} taxa 
+   * @param {number} tempo 
+   * @returns number
+   * @throws Throws TypeError quando um parâmetro é inválido
+   */
   jurosCompostos(capital, taxa, tempo) {
     this.#validarNumero(capital);
     this.#validarNumero(taxa);
@@ -49,6 +93,13 @@ export class Calculadora {
     return capital * Math.pow(1 + taxa, tempo);
   }
 
+   /**
+   * 
+   * @param {number} valor
+   * @param {number} percentual
+   * @returns number
+   * @throws Throws TypeError quando um parâmetro é inválido
+   */
   descontoPercentual(valor, percentual) {
     this.#validarNumero(valor);
     this.#validarNumero(percentual);
@@ -59,6 +110,13 @@ export class Calculadora {
     return (1 - percentual) * valor;
   }
 
+   /**
+   * 
+   * @param {number} valor
+   * @param {number} desconto
+   * @returns number
+   * @throws Throws TypeError quando um parâmetro é inválido
+   */
   descontoFixo(valor, desconto) {
     this.#validarNumero(valor);
     this.#validarNumero(desconto);
@@ -69,6 +127,11 @@ export class Calculadora {
     return valor - desconto;
   }
 
+  /**
+   * 
+   * @param {number} valor
+   * @throws TypeError - Throws TypeError quando um parâmetro é inválido
+   */
   #validarNumero(valor) {
     if (typeof valor !== "number" || Number.isNaN(valor) || !Number.isFinite(valor)) {
       throw new TypeError(`O valor "${valor}" não é um número válido`);
